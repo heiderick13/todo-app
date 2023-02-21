@@ -3,37 +3,53 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
+    <title>Todo app</title>
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
       href="./images/favicon-32x32.png"
     />
-    <title>Todo app</title>
     <link rel="stylesheet" href="./src/css/styles.css" />
     <script src="./src/js/scripts.js" defer></script>
   </head>
+
   <body>
-    <h1 class="title">Todo</h1>
+    <header>
+      <h1 class="title">Todo</h1>
+      <img src="./images/icon-sun.svg" alt="" />
+    </header>
+    <main>
+      <form id="add-task">
+        <input type="radio" disabled />
+        <input id="new-task" type="text" placeholder="Add a new task" />
+      </form>
 
-    <div id="items-left"><span></span> items left</div>
+      <section id="tasks">
+        <div id="actions">
+          <div id="items-left"><span></span> items left</div>
 
-    <ul id="filtering">
-      <a href="" class="filter">All</a>
-      <a href="" class="filter">Active</a>
-      <a href="" class="filter">Completed</a>
-    </ul>
+          <ul id="filters">
+            <a href="#" class="filter">All</a>
+            <a href="#" class="filter">Active</a>
+            <a href="#" class="filter">Completed</a>
+          </ul>
 
-    <div id="clear">Clear Completed</div>
+          <div id="clear">Clear Completed</div>
+        </div>
+      </section>
 
-    <div class="instruction">Drag and drop to reorder list</div>
+      <p class="instruction">Drag and drop to reorder list</p>
+    </main>
 
     <footer class="attribution">
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
         >Frontend Mentor</a
-      >. Coded by <a href="#">Your Name Here</a>.
+      >. Coded by
+      <a href="www.linkedin.com/in/marcelo-ferreira-de-oliveira"
+        >Marcelo Oliveira</a
+      >
     </footer>
   </body>
 </html>

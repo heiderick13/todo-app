@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+
+:root {
+  --bright-blue: hsl(220, 98%, 61%);
+  --check-background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+
+  --very-dark-blue: hsl(235, 21%, 11%);
+  --very-dark-desaturated-blue: hsl(235, 24%, 19%);
+  --dark-grayish-blue: hsl(234, 11%, 52%);
+
+  --white: hsl(0, 0%, 100%);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+  background-color: var(--very-dark-blue);
+  min-height: 100vh;
+}
+
+header {
+  background-image: url(../../images/bg-desktop-dark.jpg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 40vh;
+  padding: 0 30%;
+}
+
+header .title {
+  color: var(--white);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+main {
+  margin: -5% auto 0;
+  width: 40%;
+}
+
+#add-task,
+#tasks {
+  background-color: var(--very-dark-desaturated-blue);
+  border-radius: 4px;
+}
+
+#add-task {
+  background-color: var(--very-dark-desaturated-blue);
+  margin-bottom: 2rem;
+  padding: 1rem;
+}
+
+#new-task {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: var(--dark-grayish-blue);
+  font-size: 18px;
+}
+
+#actions {
+  display: flex;
+  justify-content: space-around;
+}
+
+.instruction {
+  margin: auto;
+  width: 40%;
+}
+
+.attribution {
+  margin-bottom: 0.5rem;
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+  text-decoration: none;
+}
