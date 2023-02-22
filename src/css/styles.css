@@ -4,11 +4,31 @@
   --bright-blue: hsl(220, 98%, 61%);
   --check-background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
 
-  --very-dark-blue: hsl(235, 21%, 11%);
-  --very-dark-desaturated-blue: hsl(235, 24%, 19%);
-  --dark-grayish-blue: hsl(234, 11%, 52%);
+  --bg-image: url(../../images/bg-desktop-dark.jpg);
+  --primary-bg: hsl(235, 21%, 11%);
+  --secondary-bg: hsl(235, 24%, 19%);
+
+  --primary-text: hsl(234, 39%, 85%);
+  --secondary-text: hsl(234, 11%, 52%);
+
+  --icon: url(../../images/icon-sun.svg);
 
   --white: hsl(0, 0%, 100%);
+}
+
+.light-mode {
+  --bg-image: url(../../images/bg-desktop-light.jpg);
+  --primary-bg: hsl(236, 33%, 92%);
+  --secondary-bg: hsl(0, 0%, 98%);
+
+  --primary-text: hsl(235, 21%, 11%);
+  --secondary-text: hsl(235, 24%, 19%);
+
+  --icon: url(../../images/icon-moon.svg);
+
+  --Light-Grayish-Blue-hover: hsl(236, 33%, 92%);
+
+  /* add to body, header, form, new-task, tasks */
 }
 
 *,
@@ -19,14 +39,22 @@
   box-sizing: border-box;
 }
 
+input,
+a {
+  font: inherit;
+  color: inherit;
+}
+
 body {
   font-family: "Josefin Sans", sans-serif;
-  background-color: var(--very-dark-blue);
+  background-color: var(--primary-bg);
   min-height: 100vh;
 }
 
 header {
-  background-image: url(../../images/bg-desktop-dark.jpg);
+  background-image: var(--bg-image);
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -38,7 +66,18 @@ header {
 header .title {
   color: var(--white);
   text-transform: uppercase;
+  font-size: 42px;
   font-weight: 700;
+  letter-spacing: 15px;
+}
+
+#mode-btn {
+  cursor: pointer;
+  height: 20px;
+}
+
+#mode-btn::after {
+  content: var(--icon);
 }
 
 main {
@@ -48,12 +87,12 @@ main {
 
 #add-task,
 #tasks {
-  background-color: var(--very-dark-desaturated-blue);
+  background-color: var(--secondary-bg);
+  color: var(--primary-text);
   border-radius: 4px;
 }
 
 #add-task {
-  background-color: var(--very-dark-desaturated-blue);
   margin-bottom: 2rem;
   padding: 1rem;
 }
@@ -62,18 +101,29 @@ main {
   background-color: transparent;
   border: none;
   outline: none;
-  color: var(--dark-grayish-blue);
+  color: var(--secondary-text);
   font-size: 18px;
 }
 
 #actions {
   display: flex;
   justify-content: space-around;
+  padding: 1rem 0;
+}
+
+#actions,
+.instruction {
+  font-size: 12px;
+  color: var(--secondary-text);
+}
+
+#filters a {
+  text-decoration: none;
 }
 
 .instruction {
-  margin: auto;
-  width: 40%;
+  text-align: center;
+  width: 100%;
 }
 
 .attribution {
