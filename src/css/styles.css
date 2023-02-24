@@ -125,6 +125,7 @@ input[type="checkbox"] {
 
 .task input[type="checkbox"]:checked {
   background: var(--check-bg);
+  border: none;
 }
 
 .task input[type="checkbox"]:checked::after {
