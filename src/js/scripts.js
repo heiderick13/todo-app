@@ -5,8 +5,6 @@ const newTask = document.querySelector("#new-task");
 const tasks = document.querySelector("#tasks");
 const modeBtn = document.querySelector("#mode-btn");
 
-const lightItems = [body, header, addTask, newTask, tasks];
-
 const tasksArr = [];
 
 // Functions
@@ -61,7 +59,5 @@ newTask.addEventListener("keyup", (e) => {
 });
 
 modeBtn.addEventListener("click", () => {
-  lightItems.forEach((item) => {
-    item.classList.toggle("light-mode");
-  });
+  body.classList.toggle("light-mode");
 });

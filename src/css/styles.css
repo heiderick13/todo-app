@@ -51,6 +51,13 @@ body {
   min-height: 100vh;
 }
 
+body,
+header,
+#add-task,
+#tasks {
+  transition: 0.5s;
+}
+
 header {
   background-image: var(--bg-image);
   background-repeat: no-repeat;
