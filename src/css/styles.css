@@ -27,7 +27,7 @@
   --secondary-bg: hsl(0, 0%, 98%);
 
   --primary-text: hsl(235, 21%, 11%);
-  --secondary-text: hsl(235, 24%, 19%);
+  --secondary-text: hsl(236, 9%, 61%);
 
   --icon: url(../../images/icon-moon.svg);
 
@@ -138,7 +138,7 @@ input[type="text"] {
   background-color: transparent;
   border: none;
   outline: none;
-  color: var(--secondary-text);
+  color: var(--primary-text);
   font-size: 18px;
 }
 
