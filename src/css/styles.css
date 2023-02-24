@@ -161,6 +161,12 @@ input[type="text"] {
   border-bottom: 1px solid var(--secondary-text);
 }
 
+.task.done input[type="text"] {
+  text-decoration: line-through;
+  font-style: italic;
+  opacity: 0.6;
+}
+
 #actions {
   display: flex;
   justify-content: space-around;

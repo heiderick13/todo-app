@@ -16,6 +16,7 @@ function addTaskElement(content) {
   let noteObj = {
     id: generateId(),
     content: content,
+    checked: false,
   };
   tasksArr.push(noteObj);
 
@@ -48,16 +49,25 @@ newTask.addEventListener("keyup", (e) => {
   let enter = e.key == "Enter";
   let content = newTask.value;
 
-  if (content == "") {
+  if (enter && content == "") {
     alert("Please enter your task!");
   }
 
   if (enter && content != "") {
     addTaskElement(content);
     newTask.value = "";
+
+    console.log(tasksArr);
   }
 });
 
 modeBtn.addEventListener("click", () => {
   body.classList.toggle("light-mode");
+});
+
+document.addEventListener("click", (e) => {
+  let clicked = e.target;
+  let parentEl = clicked.parentElement;
+
+  if (clicked.type == "checkbox") parentEl.classList.toggle("done");
 });
