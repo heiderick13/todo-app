@@ -43,12 +43,10 @@ function createTask(id, content) {
   taskContent.value = content;
 
   let editBtn = document.createElement("i");
-  editBtn.classList.add("bi");
-  editBtn.classList.add("bi-pencil");
+  editBtn.classList.add(...["bi", "bi-pencil"]);
 
   let deleteBtn = document.createElement("i");
-  deleteBtn.classList.add("bi");
-  deleteBtn.classList.add("bi-trash");
+  deleteBtn.classList.add(...["bi", "bi-trash"]);
 
   taskEl.appendChild(checkbox);
   taskEl.appendChild(taskContent);
