@@ -5,9 +5,15 @@ const newTask = document.querySelector("#new-task");
 const tasks = document.querySelector("#tasks");
 const modeBtn = document.querySelector("#mode-btn");
 
-const tasksArr = [];
+const tasksArr = getFromStorage();
 
 // Functions
+function loadTasks() {
+  getFromStorage().forEach((task) => {
+    createTask(task.id, task.content, task.checked);
+  });
+}
+
 function generateId() {
   return Date.now();
 }
@@ -21,6 +27,8 @@ function addTaskElement(content) {
   tasksArr.push(noteObj);
 
   createTask(noteObj.id, noteObj.content);
+
+  saveToStorage(tasksArr);
 }
 
 function createTask(id, content) {
@@ -31,13 +39,34 @@ function createTask(id, content) {
 
   let taskContent = document.createElement("input");
   taskContent.setAttribute("type", "text");
+  taskContent.setAttribute("readonly", "readonly");
   taskContent.value = content;
+
+  let editBtn = document.createElement("i");
+  editBtn.classList.add("bi");
+  editBtn.classList.add("bi-pencil");
+
+  let deleteBtn = document.createElement("i");
+  deleteBtn.classList.add("bi");
+  deleteBtn.classList.add("bi-trash");
 
   taskEl.appendChild(checkbox);
   taskEl.appendChild(taskContent);
+  taskEl.appendChild(editBtn);
+  taskEl.appendChild(deleteBtn);
   taskEl.classList.add("task");
 
   tasks.prepend(taskEl);
+}
+
+function getFromStorage() {
+  return (savedTasks = JSON.parse(localStorage.getItem("tasks") || "[]"));
+}
+
+function saveToStorage(tasksArr) {
+  tasksJson = JSON.stringify(tasksArr);
+
+  localStorage.setItem("tasks", tasksJson);
 }
 
 // Event handlers
@@ -68,6 +97,20 @@ modeBtn.addEventListener("click", () => {
 document.addEventListener("click", (e) => {
   let clicked = e.target;
   let parentEl = clicked.parentElement;
+  let task = parentEl.children[1];
 
   if (clicked.type == "checkbox") parentEl.classList.toggle("done");
+
+  if (clicked.classList.contains("bi-pencil")) {
+    task.removeAttribute("readonly");
+    clicked.classList.remove("bi-pencil");
+    clicked.classList.add("bi-save");
+  } else if (clicked.classList.contains("bi-save")) {
+    task.setAttribute("readonly", "readonly");
+    clicked.classList.remove("bi-save");
+    clicked.classList.add("bi-pencil");
+  }
 });
+
+// load
+loadTasks();
