@@ -2,7 +2,12 @@
 
 :root {
   --bright-blue: hsl(220, 98%, 61%);
-  --check-background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+  --check-bg: linear-gradient(
+    to right,
+    hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%)
+  );
+  --check-icon: url(../../images/icon-check.svg);
 
   --bg-image: url(../../images/bg-desktop-dark.jpg);
   --primary-bg: hsl(235, 21%, 11%);
@@ -99,6 +104,43 @@ main {
   border-radius: 4px;
 }
 
+#add-task,
+.task {
+  display: flex;
+  align-items: center;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid var(--secondary-text);
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.task input[type="checkbox"]:checked {
+  background: var(--check-bg);
+}
+
+.task input[type="checkbox"]:checked::after {
+  content: var(--check-icon);
+  color: var(--white);
+}
+
+input[type="text"] {
+  margin-left: 0.5rem;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: var(--secondary-text);
+  font-size: 18px;
+}
+
 #add-task {
   margin-bottom: 2rem;
   padding: 1rem;
@@ -116,15 +158,6 @@ main {
 .task {
   padding: 1rem;
   border-bottom: 1px solid var(--secondary-text);
-}
-
-.task input[type="text"] {
-  margin-left: 0.5rem;
-  background-color: transparent;
-  border: none;
-  outline: none;
-  color: var(--secondary-text);
-  font-size: 18px;
 }
 
 #actions {
