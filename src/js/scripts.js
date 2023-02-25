@@ -7,6 +7,9 @@ const modeBtn = document.querySelector("#mode-btn");
 
 const tasksArr = getFromStorage();
 
+// let itemsLeft = tasks.querySelector("#items-left");
+// console.log(itemsLeft);
+
 // Functions
 function generateId() {
   return Date.now();
@@ -27,7 +30,6 @@ function addTaskElement(content) {
   saveToStorage(tasksArr);
 
   newTask.value = "";
-  console.log(noteObj);
 }
 
 function createTask(id, content, checked) {
@@ -85,7 +87,7 @@ function toggleDone(id) {
 
   saveToStorage(tasks);
 
-  loadTasks();
+  loadPage();
 }
 
 function updateTask(id, newContent) {
@@ -103,15 +105,23 @@ function deleteTask(id, taskEl) {
   saveToStorage(newTasksArr);
 
   tasks.removeChild(taskEl);
+
+  loadPage();
 }
 
-function loadTasks() {
+function loadPage() {
   cleanTasks();
 
   getFromStorage().forEach((task) => {
     let taskEl = createTask(task.id, task.content, task.checked);
     tasks.prepend(taskEl);
   });
+
+  let itemsLeftEl = tasks.querySelector("#items-left span");
+  let items = tasks.querySelectorAll(".task");
+  let checkedItems = tasks.querySelectorAll(".task.done");
+
+  itemsLeftEl.textContent = items.length - checkedItems.length;
 }
 
 function cleanTasks() {
@@ -177,4 +187,4 @@ document.addEventListener("click", (e) => {
 });
 
 // load page
-loadTasks();
+loadPage();
