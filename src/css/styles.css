@@ -122,12 +122,12 @@ input[type="checkbox"] {
   justify-content: center;
 }
 
-.task input[type="checkbox"]:checked {
+.task.done input[type="checkbox"] {
   background: var(--check-bg);
   border: none;
 }
 
-.task input[type="checkbox"]:checked::after {
+.task.done input[type="checkbox"]::after {
   content: var(--check-icon);
   color: var(--white);
 }
