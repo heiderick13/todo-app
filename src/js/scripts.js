@@ -57,12 +57,17 @@ function createTask(id, content, checked) {
     taskEl.classList.add("done");
   }
 
-  // checked event
+  // element events
   taskEl
     .querySelector('input[type="checkbox"]')
     .addEventListener("click", () => {
       toggleDone(id);
     });
+
+  taskEl.querySelector('input[type="text"]').addEventListener("keyup", () => {
+    let newContent = taskEl.querySelector('input[type="text"]').value;
+    updateTask(id, newContent);
+  });
 
   return taskEl;
 }
@@ -77,6 +82,15 @@ function toggleDone(id) {
   saveToStorage(tasks);
 
   loadTasks();
+}
+
+function updateTask(id, newContent) {
+  const tasks = getFromStorage();
+  const targetTask = tasks.filter((task) => task.id === id)[0];
+
+  targetTask.content = newContent;
+
+  saveToStorage(tasks);
 }
 
 function loadTasks() {
