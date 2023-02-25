@@ -33,8 +33,6 @@
   --icon: url(../../images/icon-moon.svg);
 
   --Light-Grayish-Blue-hover: hsl(236, 33%, 92%);
-
-  /* add to body, header, form, new-task, tasks */
 }
 
 *,
@@ -61,7 +59,7 @@ body,
 header,
 #add-task,
 #tasks {
-  transition: 0.5s;
+  transition: background 0.5s ease-in-out;
 }
 
 header {
@@ -95,7 +93,7 @@ header .title {
 
 main {
   margin: -5% auto 0;
-  width: 40%;
+  padding: 0 30%;
 }
 
 #add-task,
@@ -144,13 +142,18 @@ input[type="text"] {
   font-size: 18px;
 }
 
+.task.done input[type="text"] {
+  text-decoration: line-through;
+  font-style: italic;
+  opacity: 0.6;
+}
+
 #add-task {
   margin-bottom: 2rem;
   padding: 1rem;
 }
 
 #new-task {
-  width: 90%;
   background-color: transparent;
   border: none;
   outline: none;
@@ -163,14 +166,15 @@ input[type="text"] {
   border-bottom: 1px solid var(--secondary-text);
 }
 
-.task.done input[type="text"] {
-  text-decoration: line-through;
-  font-style: italic;
-  opacity: 0.6;
-}
-
 .task i {
   color: var(--secondary-text);
+  padding-left: 0.5rem;
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.task i:hover {
+  opacity: 1;
 }
 
 #actions {
