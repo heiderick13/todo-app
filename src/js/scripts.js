@@ -69,6 +69,10 @@ function createTask(id, content, checked) {
     updateTask(id, newContent);
   });
 
+  taskEl.querySelector(".bi-trash").addEventListener("click", () => {
+    deleteTask(id, taskEl);
+  });
+
   return taskEl;
 }
 
@@ -91,6 +95,14 @@ function updateTask(id, newContent) {
   targetTask.content = newContent;
 
   saveToStorage(tasks);
+}
+
+function deleteTask(id, taskEl) {
+  let newTasksArr = getFromStorage().filter((task) => task.id !== id);
+
+  saveToStorage(newTasksArr);
+
+  tasks.removeChild(taskEl);
 }
 
 function loadTasks() {
