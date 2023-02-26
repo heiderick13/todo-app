@@ -5,8 +5,6 @@ const newTask = document.querySelector("#new-task");
 const tasks = document.querySelector("#tasks");
 const modeBtn = document.querySelector("#mode-btn");
 
-const tasksArr = getFromStorage();
-
 // let itemsLeft = tasks.querySelector("#items-left");
 // console.log(itemsLeft);
 
@@ -16,6 +14,8 @@ function generateId() {
 }
 
 function addTaskElement(content) {
+  let tasksArr = getFromStorage();
+
   let noteObj = {
     id: generateId(),
     content: content,
@@ -28,6 +28,8 @@ function addTaskElement(content) {
   tasks.prepend(taskEl);
 
   saveToStorage(tasksArr);
+
+  console.log(tasksArr);
 
   newTask.value = "";
 }
@@ -91,8 +93,8 @@ function toggleDone(id) {
 }
 
 function updateTask(id, newContent) {
-  const tasks = getFromStorage();
-  const targetTask = tasks.filter((task) => task.id === id)[0];
+  let tasks = getFromStorage();
+  let targetTask = tasks.filter((task) => task.id === id)[0];
 
   targetTask.content = newContent;
 
