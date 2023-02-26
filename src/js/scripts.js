@@ -186,6 +186,36 @@ document.addEventListener("click", (e) => {
     clicked.classList.remove("bi-save");
     clicked.classList.add("bi-pencil");
   }
+
+  if (clicked.textContent == "Active") {
+    let allTasks = tasks.querySelectorAll(".task");
+
+    allTasks.forEach((task) => {
+      if (task.classList.contains("done")) {
+        task.style.display = "none";
+      } else {
+        task.style.display = "flex";
+      }
+    });
+  }
+
+  if (clicked.textContent == "All") {
+    let allTasks = tasks.querySelectorAll(".task");
+
+    allTasks.forEach((task) => (task.style.display = "flex"));
+  }
+
+  if (clicked.textContent == "Completed") {
+    let allTasks = tasks.querySelectorAll(".task");
+
+    allTasks.forEach((task) => {
+      if (task.classList.contains("done")) {
+        task.style.display = "flex";
+      } else {
+        task.style.display = "none";
+      }
+    });
+  }
 });
 
 // load page
