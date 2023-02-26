@@ -77,6 +77,12 @@ function createTask(id, content, checked) {
     deleteTask(id, taskEl);
   });
 
+  tasks.querySelector("#clear").addEventListener("click", () => {
+    let completedTasks = tasks.querySelectorAll(".done");
+
+    deleteCompleted(completedTasks);
+  });
+
   return taskEl;
 }
 
@@ -99,6 +105,16 @@ function updateTask(id, newContent) {
   targetTask.content = newContent;
 
   saveToStorage(tasks);
+}
+
+function deleteCompleted(completed) {
+  let newTasksArr = getFromStorage().filter((task) => task.checked !== true);
+
+  saveToStorage(newTasksArr);
+
+  completed.forEach((completed) => {
+    tasks.removeChild(completed);
+  });
 }
 
 function deleteTask(id, taskEl) {
