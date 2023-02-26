@@ -29,7 +29,7 @@ function addTaskElement(content) {
 
   saveToStorage(tasksArr);
 
-  console.log(tasksArr);
+  loadPage();
 
   newTask.value = "";
 }
