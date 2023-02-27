@@ -64,6 +64,7 @@ header,
 
 header {
   background-image: var(--bg-image);
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -247,5 +248,13 @@ input[type="text"] {
   header,
   main {
     padding: 0 5%;
+  }
+
+  :root {
+    --bg-image: url(../../images/bg-mobile-dark.jpg);
+  }
+
+  .light-mode {
+    --bg-image: url(../../images/bg-mobile-light.jpg);
   }
 }
