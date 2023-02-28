@@ -260,3 +260,18 @@ input[type="text"] {
     --bg-image: url(../../images/bg-mobile-light.jpg);
   }
 }
+
+@media screen and (max-width: 330px) {
+  input[type="checkbox"] {
+    min-width: 1rem;
+    min-height: 1rem;
+    width: 1rem;
+    height: 1rem;
+  }
+
+  #new-task,
+  .task input[type="text"],
+  .task i {
+    font-size: 16px;
+  }
+}
