@@ -216,9 +216,10 @@ input[type="text"] {
 }
 
 .attribution {
-  margin-bottom: 0.5rem;
+  margin: 4rem 0 0.5rem;
   font-size: 11px;
   text-align: center;
+  color: var(--white);
 }
 .attribution a {
   color: hsl(228, 45%, 44%);
